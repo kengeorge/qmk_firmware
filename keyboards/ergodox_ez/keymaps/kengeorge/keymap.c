@@ -5,17 +5,21 @@
 
 #define BASE 0 // default layer
 #define SYM 1 // symbols
-#define NAV 2 // navigtion and special keys
+#define NAV 2 // navigation and special keys
+#define MAC 3 // Mac key combinations (command)
+#define WIN 4 // Windows key combinations (control)
 
 #define ALT_TAB LALT(KC_TAB)
 #define SH_TAB  LSFT(KC_TAB)
 #define CTL_Z   LCTL(KC_Z)
+#define CTL_X   LCTL(KC_X)
+#define CTL_C   LCTL(KC_C)
+#define CTL_V   LCTL(KC_V)
 #define ShCTL_Z LSFT(LCTL(KC_Z))
 #define CTLxZ   CTL_T(KC_Z)
 #define CTLxFSL CTL_T(KC_SLSH)
 #define CTL_ALT LCTL(KC_LALT)
 #define CTL_GRV LCTL(KC_GRV)
-#define _______ KC_TRNS
 #define CMD_Z   LGUI(KC_Z)
 #define CMD_X   LGUI(KC_X)
 #define CMD_C   LGUI(KC_C)
@@ -169,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _______, _______, _______, _______, _______, _______, _______,
        _______, _______, _______, KC_MS_U, _______, _______, _______,
        _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,
-       _______, CMD_Z  , CMD_X  , CMD_C  , CMD_V  , _______, _______,
+       _______, CTL_Z  , CTL_X  , CTL_C  , CTL_V  , _______, _______,
        _______, _______, _______, _______, _______,
                                                     KC_BTN3, KC_WH_U,
                                                              KC_WH_D,
@@ -183,8 +187,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           _______, _______, _______, _______, _______,
        KC_VOLU, KC_MUTE,
        KC_VOLD,
-       _______, CMD_ENT, CMD_SPC
+       _______, _______, _______
 ),
+
+[MAC] = LAYOUT_ergodox(
+        // left hand
+        _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, KC_MS_U, _______, _______, _______,
+        _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,
+        _______, CMD_Z  , CMD_X  , CMD_C  , CMD_V  , _______, _______,
+        _______, _______, _______, _______, _______,
+                                                     KC_BTN3, KC_WH_U,
+                                                              KC_WH_D,
+                                            KC_BTN1, KC_BTN2, _______,
+
+        // right hand
+        RESET  , _______, _______, _______, _______, _______, KC_SLEP,
+        _______, _______, _______, _______, _______, _______, _______,
+        KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______,
+                          _______, _______, _______, _______, _______,
+        KC_VOLU, KC_MUTE,
+        KC_VOLD,
+        _______, CMD_ENT, CMD_SPC
+),
+
 };
 
 const uint16_t PROGMEM fn_actions[] = {
