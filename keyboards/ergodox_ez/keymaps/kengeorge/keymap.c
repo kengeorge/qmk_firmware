@@ -10,6 +10,7 @@
 #define WIN 4 // Windows key combinations (control)
 
 #define ALT_TAB LALT(KC_TAB)
+#define S_ALT_T LSFT(LALT(KC_TAB))
 #define SH_TAB  LSFT(KC_TAB)
 #define CTL_Z   LCTL(KC_Z)
 #define CTL_X   LCTL(KC_X)
@@ -58,48 +59,49 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
+ * under_score, under_scoreunder
+ *
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | AltTab |   1  |   2  |   3  |   4  |   5  | LGui |           |  DEL |   6  |   7  |   8  |   9  |   0  |   =    |
+ * | Grave  |   1  |   2  |   3  |   4  |   5  |AltTab|           |ShAlTb|   6  |   7  |   8  |   9  |   0  |   =    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Grave  |   Q  |   W  |   E  |   R  |   T  |  '   |           |   -  |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * |   _    |   Q  |   W  |   E  |   R  |   T  |  '   |           |   -  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |(H)NAV  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |  ;   |   '    |
  * |--------+------+------+------+------+------|  !   |           |   =  |------+------+------+------+------+--------|
- * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl| RShift |
+ * | LShift |ZxCtrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |/xCtrl| RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *  |(H)SYM | LAlt |CtlAlt| shTab| Tab  |                                       |   :  |  Esc | RAlt | RCtl |(H)SYM |
+ *  |  LAlt |(H)SYM|CtlAlt| shTab| Tab  |                                       |   :  |  Esc |CtlAlt|(H)Sym|  RAlt |
  *   `----------------------------------'                                       `----------------------------------'
+ *
  *                                        ,-------------.       ,-------------.
  *                                        | Enter| LGui |       |      |        |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      | CtlZ |       |ShCtZ |        |      |
+ *                                 |      |      | CtlZ |       |Delete|        |      |
  *                                 |BSpace|Space |------|       |------|  Enter |Space |
  *                                 |      |      | Esc  |       |BSpace|        |      |
  *                                 `--------------------'       `----------------------'
  */
-// If it accepts an argument (i.e, is a function), it doesn't need KC_.
-// Otherwise, it needs KC_*
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        ALT_TAB, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_LGUI,
-        KC_GRV , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_QUOT,
+        KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , ALT_TAB,
+        KC_UNDS, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_QUOT,
         MO(NAV), KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,
         KC_LSFT, CTLxZ  , KC_X   , KC_C   , KC_V   , KC_B   , KC_EXLM,
-        MO(SYM), KC_LALT, CTL_ALT, SH_TAB , KC_TAB ,
+        KC_LALT, MO(SYM), CTL_ALT, SH_TAB , KC_TAB ,
 
                                                      KC_ENT , KC_LGUI,
                                                               CTL_Z  ,
                                             KC_BSPC, KC_SPC , KC_ESC ,
 
         // right hand
-        KC_DEL ,  KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_EQL ,
+        S_ALT_T,  KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_EQL ,
         KC_MINS,  KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_BSLS,
                   KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT,
         KC_EQL ,  KC_N   , KC_M   , KC_COMM, KC_DOT , CTLxFSL, KC_RSFT,
-                           KC_COLN, KC_ESC , KC_RALT, KC_RCTL, MO(SYM),
+                           KC_COLN, KC_ESC , CTL_ALT, MO(SYM), KC_RALT,
         _______, _______,
-        ShCTL_Z,
+        KC_DEL ,
         KC_BSPC, KC_ENT , KC_SPC
     ),
 /* Keymap 1: Symbol Layer
@@ -107,13 +109,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,---------------------------------------------------.           ,--------------------------------------------------.
  * |Version  |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |         |   #  |   @  |   {  |   }  |   "  |      |           |      |      |   7  |   8  |   9  |      |   F12  |
+ * |         |   #  |   @  |   {  |   }  |   "  |      |           |      |   +  |   7  |   8  |   9  |   *  |   F12  |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |   ^  |   $  |   (  |   )  |   ;  |------|           |------|      |   4  |   5  |   6  |   +  |        |
+ * |  XXXXX  |   ^  |   $  |   (  |   )  |   ;  |------|           |------|   -  |   4  |   5  |   6  |   /  |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |         |   |  |   &  |   [  |   ]  |   =  |      |           |      |   ,  |   1  |   2  |   3  |   -  |        |
+ * |    %    |   |  |   &  |   [  |   ]  |   =  |      |           |      |   ,  |   1  |   2  |   3  |      |        |
  * `---------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |       |      |      |   <  |   >  |                                       |   0  |   .  |   *  |   /  |      |
+ *   |       | XXXX |      |   <  |   >  |                                       |   0  |   .  |   *  | XXXX |      |
  *   `-----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
@@ -138,10 +140,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         // right hand
         _______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 ,
-        _______, _______, KC_7   , KC_8   , KC_9   , _______, KC_F12 ,
-                 _______, KC_4   , KC_5   , KC_6   , KC_PLUS, _______,
-        _______, KC_COMM, KC_1   , KC_2   , KC_3   , KC_MINS, _______,
-                          KC_0   , KC_DOT , KC_ASTR, KC_SLSH, _______,
+        _______, KC_PLUS, KC_7   , KC_8   , KC_9   , KC_ASTR, KC_F12 ,
+                 KC_MINS, KC_4   , KC_5   , KC_6   , KC_SLSH, _______,
+        _______, KC_COMM, KC_1   , KC_2   , KC_3   , _______, _______,
+                          KC_0   , KC_DOT , KC_ASTR, _______, _______,
         _______, _______,
         _______,
         _______, _______, _______
@@ -153,11 +155,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      |      | MsUp |      |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |MsLeft|MsDown|MsRght|      |------|           |------| Left | Down |  Up  | Right|      |        |
+ * | XXXXXX |      |MsLeft|MsDown|MsRght|      |------|           |------| Left | Down |  Up  | Right|      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        | GuiZ | GuiX | GuiC | GuiV |      |      |           |      |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      | Lclk | Rclk |                                       |      |      |      |      |      |
+ *   |      | XXXX |      | Lclk | Rclk |                                       |      |      |      | XXXX |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | Mclk | WhUp |       | VolUp| Mute |
@@ -190,6 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _______, _______, _______
 ),
 
+//TODO
 [MAC] = LAYOUT_ergodox(
         // left hand
         _______, _______, _______, _______, _______, _______, _______,
