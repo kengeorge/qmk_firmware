@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   `----------------------------------'                                       `----------------------------------'
  *
  *                                        ,-------------.       ,-------------.
- *                                        | Enter| LGui |       |      |        |
+ *                                        |AltTab| LGui |       |ShalTb| AltTab |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | CtlZ |       |Delete|        |      |
  *                                 |BSpace|Space |------|       |------|  Enter |Space |
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, CTLxZ  , KC_X   , KC_C   , KC_V   , KC_B   , KC_EXLM,
         MO(SYM), KC_LALT, CTL_ALT, SH_TAB , KC_TAB ,
 
-                                                     KC_ENT , KC_LGUI,
+                                                     ALT_TAB, KC_LGUI,
                                                               CTL_Z  ,
                                             KC_BSPC, KC_SPC , KC_ESC ,
 
@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT,
         KC_EQL ,  KC_N   , KC_M   , KC_COMM, KC_DOT , CTLxFSL, KC_RSFT,
                            KC_COLN, KC_ESC , CTL_ALT, KC_RALT, MO(SYM),
-        _______, _______,
+        S_ALT_T, ALT_TAB,
         KC_DEL ,
         KC_BSPC, KC_ENT , KC_SPC
     ),
