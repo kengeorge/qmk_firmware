@@ -17,6 +17,7 @@
 #define CTL_X   LCTL(KC_X)
 #define CTL_C   LCTL(KC_C)
 #define CTL_V   LCTL(KC_V)
+#define CTL_P   LCTL(KC_P)
 #define ShCTL_Z LSFT(LCTL(KC_Z))
 #define CTLxZ   CTL_T(KC_Z)
 #define CTLxFSL CTL_T(KC_SLSH)
@@ -154,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |      |      |      |      |      |      |           | RESET|      |      |      |      |      |  SLEEP |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        | LGui |      | MsUp |      |      |      |           |      |      |      |      |      |      |        |
+ * |        | LGui |      | MsUp |      |      |      |           |      |      |      |      |      | CtlP |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | XXXXXX | LAlt |MsLeft|MsDown|MsRght|AltTab|------|           |------| Left | Down |  Up  | Right|      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -178,13 +179,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _______, KC_LALT, KC_MS_L, KC_MS_D, KC_MS_R, ALT_TAB,
        _______, CTL_Z  , CTL_X  , CTL_C  , CTL_V  , _______, _______,
        _______, _______, _______, _______, _______,
-                                                    KC_BTN3, KC_WH_U,
+                                                KC_BTN3, KC_WH_U,
                                                              KC_WH_D,
                                            KC_BTN1, KC_BTN2, _______,
 
        // right hand
        RESET  ,  _______, _______, _______, _______, _______, KC_SLEP,
-       _______,  _______, SH_TAB , KC_TAB , _______, _______, _______,
+       _______,  _______, SH_TAB , KC_TAB , _______, CTL_P  , _______,
                  KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______,
        _______,  _______, _______, _______, _______, _______, _______,
                           KC_MPRV, KC_MNXT, _______, _______, _______,
