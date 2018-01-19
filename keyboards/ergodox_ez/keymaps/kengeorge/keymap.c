@@ -9,6 +9,7 @@
 #define MAC 3 // Mac key combinations (command)
 #define WIN 4 // Windows key combinations (control)
 
+//Customs to keep everything within the 7 character size for layout purposes
 #define ALT_TAB LALT(KC_TAB)
 #define S_ALT_T LSFT(LALT(KC_TAB))
 #define SH_TAB  LSFT(KC_TAB)
@@ -19,8 +20,7 @@
 #define ShCTL_Z LSFT(LCTL(KC_Z))
 #define CTLxZ   CTL_T(KC_Z)
 #define CTLxFSL CTL_T(KC_SLSH)
-#define GUIxA GUI_T(KC_A)
-#define GUIxsc GUI_T(KC_SCLN)
+#define QxALTAB ALT_T(LALT(KC_TAB)) //doesn't appear to actually work, only sends tab
 #define CTL_ALT LCTL(KC_LALT)
 #define CTL_GRV LCTL(KC_GRV)
 #define CMD_Z   LGUI(KC_Z)
@@ -69,11 +69,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |   _    |   Q  |   W  |   E  |   R  |   T  |  '   |           |   -  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |(H)NAV  |AxGui |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |;xGui |   '    |
+ * |(H)NAV  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
  * |--------+------+------+------+------+------|  !   |           |   =  |------+------+------+------+------+--------|
  * | LShift |ZxCtrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |/xCtrl| RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *  |(H)SYM | LAlt |CtlAlt| shTab| Tab  |                                       |   :  |  Esc |CtlAlt| RAlt |(H)SYM |
+ *  |(H)SYM | LAlt |CtlAlt| LGui | Tab  |                                       |   :  |  Esc |CtlAlt| RAlt |(H)SYM |
  *   `----------------------------------'                                       `----------------------------------'
  *
  *                                        ,-------------.       ,-------------.
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_UNDS, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_QUOT,
         MO(NAV), KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,
         KC_LSFT, CTLxZ  , KC_X   , KC_C   , KC_V   , KC_B   , KC_EXLM,
-        MO(SYM), KC_LALT, CTL_ALT, SH_TAB , KC_TAB ,
+        MO(SYM), KC_LALT, CTL_ALT, KC_LGUI, KC_TAB ,
 
                                                      ALT_TAB, KC_LGUI,
                                                               CTL_Z  ,
@@ -175,7 +175,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NAV] = LAYOUT_ergodox(
        // left hand
        _______, _______, _______, _______, _______, _______, _______,
-       _______, _______, _______, KC_MS_U, _______, _______, _______,
+       _______, QxALTAB, _______, KC_MS_U, _______, _______, _______,
        _______, KC_LGUI, KC_MS_L, KC_MS_D, KC_MS_R, _______,
        _______, CTL_Z  , CTL_X  , CTL_C  , CTL_V  , _______, _______,
        _______, _______, _______, _______, _______,
@@ -185,36 +185,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
        // right hand
        RESET  ,  _______, _______, _______, _______, _______, KC_SLEP,
-       _______,  _______, _______, _______, _______, _______, _______,
+       _______,  _______, SH_TAB , KC_TAB , _______, _______, _______,
                  KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______,
        _______,  _______, _______, _______, _______, _______, _______,
                           KC_MPRV, KC_MNXT, _______, _______, _______,
        KC_VOLU, KC_MUTE,
        KC_VOLD,
        _______, _______, _______
-),
-
-//TODO
-[MAC] = LAYOUT_ergodox(
-        // left hand
-        _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, KC_MS_U, _______, _______, _______,
-        _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______,
-        _______, CMD_Z  , CMD_X  , CMD_C  , CMD_V  , _______, _______,
-        _______, _______, _______, _______, _______,
-                                                     KC_BTN3, KC_WH_U,
-                                                              KC_WH_D,
-                                            KC_BTN1, KC_BTN2, _______,
-
-        // right hand
-        RESET  , _______, _______, _______, _______, _______, KC_SLEP,
-        _______, _______, _______, _______, _______, _______, _______,
-        KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______,
-                          _______, _______, _______, _______, _______,
-        KC_VOLU, KC_MUTE,
-        KC_VOLD,
-        _______, CMD_ENT, CMD_SPC
 ),
 
 };
