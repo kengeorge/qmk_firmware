@@ -20,7 +20,6 @@
 #define ShCTL_Z LSFT(LCTL(KC_Z))
 #define CTLxZ   CTL_T(KC_Z)
 #define CTLxFSL CTL_T(KC_SLSH)
-#define QxALTAB ALT_T(LALT(KC_TAB)) //doesn't appear to actually work, only sends tab
 #define CTL_ALT LCTL(KC_LALT)
 #define CTL_GRV LCTL(KC_GRV)
 #define CMD_Z   LGUI(KC_Z)
@@ -155,13 +154,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |      |      |      |      |      |      |           | RESET|      |      |      |      |      |  SLEEP |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      | MsUp |      |      |      |           |      |      |      |      |      |      |        |
+ * |        | LGui |      | MsUp |      |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | XXXXXX | LGui |MsLeft|MsDown|MsRght|      |------|           |------| Left | Down |  Up  | Right|      |        |
+ * | XXXXXX | LAlt |MsLeft|MsDown|MsRght|AltTab|------|           |------| Left | Down |  Up  | Right|      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        | GuiZ | GuiX | GuiC | GuiV |      |      |           |      |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      | XXXX |      | Lclk | Rclk |                                       | Prev | Next |      | XXXX |      |
+ *   |      | XXXX |      |      |      |                                       | Prev | Next |      | XXXX |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | Mclk | WhUp |       | VolUp| Mute |
@@ -175,8 +174,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NAV] = LAYOUT_ergodox(
        // left hand
        _______, _______, _______, _______, _______, _______, _______,
-       _______, QxALTAB, _______, KC_MS_U, _______, _______, _______,
-       _______, KC_LGUI, KC_MS_L, KC_MS_D, KC_MS_R, _______,
+       _______, KC_LGUI, _______, KC_MS_U, _______, _______, _______,
+       _______, KC_LALT, KC_MS_L, KC_MS_D, KC_MS_R, ALT_TAB,
        _______, CTL_Z  , CTL_X  , CTL_C  , CTL_V  , _______, _______,
        _______, _______, _______, _______, _______,
                                                     KC_BTN3, KC_WH_U,
