@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Grave  |   1  |   2  |   3  |   4  |   5  |CtrlZ |           | CAPS |   6  |   7  |   8  |   9  |   0  |   =    |
+ * |   `    |   1  |   2  |   3  |   4  |   5  |      |           | CAPS |   6  |   7  |   8  |   9  |   0  |   =    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |   _    |   Q  |   W  |   E  |   R  |   T  |(T)SYM|           |   -  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , CTL_Z  ,
+        KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , _______,
         KC_UNDS, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , TG(SYM),
         MO(NAV), KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,
         KC_LSFT, CTLxZ  , KC_X   , KC_C   , KC_V   , KC_B   , KC_EXLM,
@@ -111,9 +111,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Symbol Layer
  *
  * ,---------------------------------------------------.           ,--------------------------------------------------.
- * |Version  |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
+ * |         |  F1  |  F2  |  F3  |  F4  |  F5  |Versn |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
  * |---------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
- * |         |   #  |   @  |   {  |   }  |   "  |      |           |      |   *  |   7  |   8  |   9  |SH_TAB|   F12  |
+ * | Crtl+`  |   #  |   @  |   {  |   }  |   "  |      |           |      |   *  |   7  |   8  |   9  |SH_TAB|   F12  |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |  XXXXX  |   ^  |   $  |   (  |   )  |   ;  |------|           |------|   -  |   4  |   5  |   6  |      |        |
  * |---------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // SYMBOLS
 [SYM] = LAYOUT_ergodox(
         // left hand
-        VRSN   , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , _______,
+        _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , VRSN   ,
         CTL_GRV, KC_HASH, KC_AT  , KC_LCBR, KC_RCBR, KC_DQUO, _______,
         _______, KC_CIRC, KC_DLR , KC_LPRN, KC_RPRN, KC_SCLN,
         _______, KC_PIPE, KC_AMPR, KC_LBRC, KC_RBRC, KC_EQL , _______,
