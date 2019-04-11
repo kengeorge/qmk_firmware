@@ -91,3 +91,5 @@ endif
 
 
 LAYOUTS = ergodox
+
+KEY_LOCK_ENABLE = yes

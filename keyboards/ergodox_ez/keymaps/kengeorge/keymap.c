@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   `----------------------------------'                                       `----------------------------------'
  *
  *                                        ,-------------.       ,-------------.
- *                                        |Delete|Enter |       |      |        |
+ *                                        |Delete|Enter |       |KCLOCK|      |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | CtlZ |       |Delete|        |      |
  *                                 |BSpace|Space |------|       |------|  Enter |Space |
@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT,
         KC_EQL ,  KC_N   , KC_M   , KC_COMM, KC_DOT , CTLxFSL, KC_RSFT,
                            KC_COLN, KC_ESC , CTL_ALT, KC_RALT, MO(SYM),
-        _______, _______,
+        KC_LOCK, _______,
         KC_DEL ,
         KC_BSPC, KC_ENT , KC_SPC
     ),
