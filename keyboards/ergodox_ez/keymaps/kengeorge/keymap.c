@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   `    |   1  |   2  |   3  |   4  |   5  |      |           | CAPS |   6  |   7  |   8  |   9  |   0  |   =    |
+ * |   `    |   1  |   2  |   3  |   4  |   5  |Delete|           | CAPS |   6  |   7  |   8  |   9  |   0  |   =    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |   _    |   Q  |   W  |   E  |   R  |   T  |(T)SYM|           |   -  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   `----------------------------------'                                       `----------------------------------'
  *
  *                                        ,-------------.       ,-------------.
- *                                        |Delete|Enter |       |KCLOCK|      |
+ *                                        |KCLOCK|Enter |       |KCLOCK|      |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | CtlZ |       |Delete|        |      |
  *                                 |BSpace|Space |------|       |------|  Enter |Space |
@@ -88,13 +88,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , _______,
+        KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_DEL ,
         KC_UNDS, KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , TG(SYM),
         MO(NAV), KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,
         KC_LSFT, CTLxZ  , KC_X   , KC_C   , KC_V   , KC_B   , KC_EXLM,
         MO(SYM), KC_LALT, CTL_ALT, SH_TAB , KC_TAB ,
 
-                                                     KC_DEL , KC_ENT ,
+                                                     KC_LOCK, KC_ENT ,
                                                               CTL_Z  ,
                                             KC_BSPC, KC_SPC , KC_ESC ,
 

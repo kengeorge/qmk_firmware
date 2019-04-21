@@ -13,4 +13,4 @@
 #define MOUSEKEY_MAX_SPEED      2
 
 #undef DEBOUNCE
-#define DEBOUNCE 18
+#define DEBOUNCE 25
